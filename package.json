@@ -1,0 +1,23 @@
+{
+  "name": "eleventy-webc-gsap",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "start": "npx @11ty/eleventy --serve --quiet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zippkidd/eleventy-webc-gsap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zippkidd/eleventy-webc-gsap/issues"
+  },
+  "homepage": "https://github.com/zippkidd/eleventy-webc-gsap#readme",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
