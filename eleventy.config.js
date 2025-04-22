@@ -1,6 +1,8 @@
 import pluginWebc from '@11ty/eleventy-plugin-webc'
 import path from 'node:path'
 import * as sass from 'sass'
+import browserslist from 'browserslist'
+import { transform, browserslistToTargets } from 'lightningcss'
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginWebc, {
@@ -26,8 +28,16 @@ export default function (eleventyConfig) {
       // trigger rebuilds when using --incremental
       this.addDependencies(inputPath, result.loadedUrls)
 
+      const targets = browserslistToTargets(browserslist('> 0.2% and not dead'))
+
       return async () => {
-        return result.css
+        const { code } = await transform({
+          code: Buffer.from(result.css),
+          minify: true,
+          sourceMap: true,
+          targets
+        })
+        return code
       }
     }
   })
