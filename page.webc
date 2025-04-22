@@ -1,0 +1,7 @@
+---
+layout: "layout.webc"
+---
+
+Test 123
+
+<my-component></my-component>
