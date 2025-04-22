@@ -4,9 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style @raw="getBundle('css')">
-      @import "modern-css-reset";
-    </style>
     <style @raw="getBundle('css')" webc:keep></style>
   </head>
   <body @html="this.content"></body>
