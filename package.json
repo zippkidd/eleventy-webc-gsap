@@ -25,6 +25,7 @@
     "sass": "^1.87.0"
   },
   "devDependencies": {
+    "modern-css-reset": "^1.4.0",
     "standard": "^17.1.2"
   }
 }

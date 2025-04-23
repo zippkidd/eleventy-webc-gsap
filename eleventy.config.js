@@ -6,11 +6,11 @@ import { transform, browserslistToTargets } from 'lightningcss'
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginWebc, {
-    components: '_includes/webc/*.webc'
+    components: '_includes/webc/*/*.webc'
   })
+  eleventyConfig.addTemplateFormats('scss')
   eleventyConfig.addExtension('scss', {
     outputFileExtension: 'css',
-
     compile: async function (inputContent, inputPath) {
       const parsed = path.parse(inputPath)
       // Don't compile file names that start with an underscore
@@ -20,7 +20,11 @@ export default function (eleventyConfig) {
 
       // Run file content through Sass
       const result = sass.compileString(inputContent, {
-        loadPaths: [parsed.dir || '.'],
+        loadPaths: [
+          parsed.dir || '.',
+          'node_modules/modern-css-reset/dist',
+          this.config.dir.includes
+        ],
         sourceMap: true
       })
 
